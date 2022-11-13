@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-watch": "vue-cli-service build-watch"
   },
   "dependencies": {
     "core-js": "^3.8.3",
@@ -14,6 +15,7 @@
     "vue-property-decorator": "^9.1.2"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.75",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -21,6 +23,7 @@
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
+    "copy-webpack-plugin": "^4.6.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -29,6 +32,7 @@
     "less-loader": "^8.0.0",
     "prettier": "^2.4.1",
     "typescript": "~4.5.5",
+    "vue-cli-plugin-chrome-ext": "~0.0.5",
     "vue-template-compiler": "^2.6.14"
   }
 }
