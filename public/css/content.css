@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "iconfont";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/iconfont.ttf?t=1668589126728") format("truetype");
+
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 26px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.copyCursor{
+  cursor: url('chrome-extension://__MSG_@@extension_id__/images/copy.png'),default!important;
+  user-select: inherit;
+  -webkit-user-select: inherit;
+}

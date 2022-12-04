@@ -31,7 +31,16 @@ const plugins =
 
 module.exports = {
   pages: pagesObj,
+  productionSourceMap: false,
   configureWebpack: {
     plugins: [CopyWebpackPlugin(plugins)],
+    entry: {
+      "content-script": "./src/content/index.ts",
+      inject: "./src/scripts/inject.ts",
+      background: "./src/background/index.ts",
+    },
+    output: {
+      filename: "js/[name].js",
+    },
   },
 };
