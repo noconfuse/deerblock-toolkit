@@ -17,6 +17,14 @@ const getCropConfig = () => {
     });
   });
 };
+const getPickerConfig = () => {
+  return new Promise((resolve) => {
+    chrome.storage.local.get([STORAGEKEY.IS_PICK_COLOR], (result) => {
+      const res = result[STORAGEKEY.IS_PICK_COLOR] || false;
+      resolve(res);
+    });
+  });
+};
 
 // 监听事件，处理各种任务
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
@@ -32,6 +40,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (type === "changeCropStatus") {
     chrome.storage.local.set({
       [STORAGEKEY.IS_CROP_OPEN]: !!data,
+    });
+  }
+  if (type === "changePickerStatus") {
+    chrome.storage.local.set({
+      [STORAGEKEY.IS_PICK_COLOR]: !!data,
     });
   }
 
@@ -52,8 +65,20 @@ chrome.commands.onCommand.addListener((command) => {
   if (command === "open-copy") {
     getCopyConfig().then((can) => {
       if (can) {
+        debugger;
         sendMessageToContent({
           type: "openCopy",
+          data: null,
+        });
+      }
+    });
+  }
+
+  if (command === "open-picker") {
+    getPickerConfig().then((can) => {
+      if (can) {
+        sendMessageToContent({
+          type: "openPicker",
           data: null,
         });
       }

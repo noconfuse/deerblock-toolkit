@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --watch --mode production",
     "lint": "vue-cli-service lint",
-    "build-watch": "vue-cli-service build-watch"
+    "build-watch": "vue-cli-service build-watch  --mode production"
   },
   "dependencies": {
     "clipboard": "^2.0.11",

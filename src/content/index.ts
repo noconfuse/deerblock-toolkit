@@ -1,10 +1,12 @@
 import CopyManager from "./copyManager";
 import CropScreen from "./cropScreen";
+import PickerManager from "./pickerManager";
 
-let currentIns: CropScreen | CopyManager;
+let currentIns: CropScreen | CopyManager | PickerManager;
 
 let cropScreen: CropScreen | null = null;
 let copyIns: CopyManager | null = null;
+let pickerIns: PickerManager | null = null;
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   const { type, data } = request;
@@ -22,6 +24,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       copyIns = new CopyManager();
     }
     copyIns.open();
+  }
+  if (type === "openPicker") {
+    if (!pickerIns) {
+      pickerIns = new PickerManager();
+    }
+    pickerIns.open();
   }
 });
 
@@ -43,5 +51,8 @@ document.addEventListener("keydown", function (event) {
 
     copyIns?.close();
     copyIns = null;
+
+    pickerIns?.close();
+    pickerIns = null;
   }
 });

@@ -9,9 +9,17 @@
       ></el-switch>
     </div>
     <div class="one_item">
-      <span> 截图(Ctrl/Command+Shift+X) </span>
+      <span>截图(Ctrl/Command+Shift + X) </span>
       <el-switch
         v-model="isCropOpen"
+        active-text=""
+        inactive-text=""
+      ></el-switch>
+    </div>
+    <div class="one_item">
+      <span>颜色拾取(Alt/Option + X) </span>
+      <el-switch
+        v-model="isPickColor"
         active-text=""
         inactive-text=""
       ></el-switch>
@@ -28,6 +36,7 @@ export default {
     return {
       isCropOpen: false,
       isCopyOpen: false,
+      isPickColor: false
     };
   },
   created() {
@@ -36,6 +45,9 @@ export default {
     });
     chrome.storage.local.get([STORAGEKEY.IS_CROP_OPEN], (res) => {
       this.isCropOpen = res[STORAGEKEY.IS_CROP_OPEN];
+    });
+    chrome.storage.local.get([STORAGEKEY.IS_PICK_COLOR], (res) => {
+      this.isPickColor = res[STORAGEKEY.IS_PICK_COLOR];
     });
   },
   methods: {},
@@ -46,6 +58,9 @@ export default {
     isCropOpen(b) {
       sendMessageToBg({ type: "changeCropStatus", data: b });
     },
+    isPickColor(b){
+      sendMessageToBg({ type: "changePickerStatus", data: b });
+    }
   },
 };
 </script>

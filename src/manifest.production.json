@@ -25,7 +25,7 @@
         "js":["js/content-script.js"],
         "run_at":"document_start"
     }],
-    "permissions":["activeTab","tabCapture","storage"],
+    "permissions":["activeTab","storage"],
     "host_permissions":["*://*/*"],
     "commands":{
         "open-crop":{
@@ -41,6 +41,13 @@
                 "mac":"Alt+C"
             },
             "description":"快速复制"
+        },
+        "open-picker": {
+            "suggested_key": {
+                "windows": "Alt+X",
+                "mac": "Alt+X"
+            },
+            "description": "颜色拾取"
         }
     },
     "web_accessible_resources":[{
