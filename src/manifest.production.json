@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "deerblock-toolkit",
     "description": "网页工具集合",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "options_page": "options.html",
     "icons": {
         "19": "images/logo.png"
